@@ -2,7 +2,7 @@
 
 A modern, visually stunning website for a premium sushi restaurant featuring 3D graphics, video content, and immersive user experience.
 
-## 🍣 Features
+##  Features
 
 - **3D Visual Elements** - Interactive 3D graphics and animations
 - **Video Backgrounds** - Cinematic video content for immersive atmosphere
@@ -101,5 +101,3 @@ This project is created as a college diploma project.
 **snaker373** - [GitHub](https://github.com/snaker373)
 
 ---
-
-*Made with ❤️ for sushi lovers*
