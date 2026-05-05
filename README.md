@@ -1,103 +1,123 @@
-# Sushi Web - Premium Sushi Restaurant Website
+# SHIRO — Premium Sushi Restaurant Website
 
-A modern, visually stunning website for a premium sushi restaurant featuring 3D graphics, video content, and immersive user experience.
+SHIRO is a modern responsive website for a premium sushi restaurant with delivery functionality.  
+The project was created as a diploma work on the topic:
 
-##  Features
+**“Creating a restaurant website with a delivery function.”**
 
-- **3D Visual Elements** - Interactive 3D graphics and animations
-- **Video Backgrounds** - Cinematic video content for immersive atmosphere
-- **Responsive Design** - Optimized for all devices (desktop, tablet, mobile)
-- **Smooth Animations** - Fluid transitions and micro-interactions
-- **Modern UI/UX** - Clean, elegant design with premium aesthetics
-
-## 🛠️ Tech Stack
-
-- **HTML5** - Semantic markup structure
-- **CSS3** - Styling, animations, and responsive layouts
-- **JavaScript (ES6+)** - Interactive functionality and dynamic content
-- **Three.js** - 3D graphics and WebGL rendering
-- **GSAP** - Advanced animations and transitions
-
-## 📁 Project Structure
-
-```
-Sushi-Web/
-├── index.html          # Main landing page
-├── css/
-│   └── style.css       # Main stylesheet
-├── js/
-│   └── main.js         # JavaScript functionality
-├── assets/
-│   ├── images/         # Static images
-│   ├── videos/         # Video content
-│   └── 3d/             # 3D models and assets
-└── README.md           # This file
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- Local web server (optional, for development)
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/snaker373/Sushi-Web.git
-```
-
-2. Navigate to the project directory:
-```bash
-cd Sushi-Web
-```
-
-3. Open `index.html` in your browser
-
-### Development
-
-For development with live reload, use a local server:
-
-```bash
-# Using Python
-python -m http.server 8000
-
-# Using Node.js (with http-server)
-npx http-server
-```
-
-Then open `http://localhost:8000` in your browser.
-
-## 🎨 Design Highlights
-
-- **Premium Color Palette** - Elegant dark theme with gold accents
-- **Typography** - Modern fonts for readability and style
-- **3D Elements** - Interactive 3D sushi models and decorations
-- **Video Integration** - Background videos for sections
-- **Parallax Effects** - Depth and movement for visual interest
-
-## 📱 Sections
-
-- **Hero** - Stunning video background with call-to-action
-- **Menu** - Interactive sushi and roll showcase
-- **About** - Restaurant story and philosophy
-- **Gallery** - 3D visual gallery of dishes
-- **Contact** - Location, hours, and reservation form
-
-## 🌐 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## 📄 License
-
-This project is created as a college diploma project.
-
-## 👨‍💻 Author
-
-**snaker373** - [GitHub](https://github.com/snaker373)
+The website presents the restaurant, its menu, delivery service, reservation option, and an interactive cart system for ordering food.
 
 ---
+
+## Live Demo
+
+[Open Website](https://snaker373.github.io/Sushi-Web/)
+
+---
+
+## Project Description
+
+SHIRO is a front-end web application designed for a sushi restaurant.  
+The main goal of the project is to provide users with a convenient way to view the restaurant menu, add dishes to the cart, calculate the total price, and proceed to checkout for delivery.
+
+The website combines a premium visual style with practical restaurant functionality.
+
+---
+
+## Main Features
+
+- Responsive restaurant landing page
+- Premium dark design with golden accents
+- Interactive food menu
+- Product cards with images, names, descriptions, and prices
+- Shopping cart functionality
+- Add and remove products from the cart
+- Change product quantity
+- Automatic total price calculation
+- Checkout modal for delivery order
+- Order form with customer information
+- Delivery address and payment method selection
+- Order confirmation message
+- Table reservation form
+- Delivery information section
+- Mobile-friendly layout
+
+---
+
+## Website Sections
+
+### Hero Section
+
+The main screen introduces the SHIRO restaurant with a premium visual style and call-to-action buttons.
+
+### Philosophy Section
+
+This section describes the concept, atmosphere, and values of the restaurant.
+
+### Menu Section
+
+Users can browse sushi dishes, view prices, and add items to the cart.
+
+### Cart
+
+The cart allows users to:
+
+- View selected dishes
+- Increase or decrease quantity
+- Remove items
+- See the total price
+- Continue to checkout
+
+### Checkout Modal
+
+The checkout modal allows users to enter delivery information:
+
+- Full name
+- Phone number
+- Delivery address
+- Delivery time
+- Payment method
+- Additional comment
+
+After confirming the order, the website generates an order number and displays a success message.
+
+### Delivery Section
+
+This section explains the delivery process, packaging, and service area.
+
+### Reservation Section
+
+Users can submit a table reservation form.
+
+### Footer
+
+The footer contains restaurant information, opening hours, and contact details.
+
+---
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- React
+- ReactDOM
+- Babel Standalone
+- LocalStorage
+- GitHub Pages
+
+---
+
+## Project Structure
+
+```text
+Sushi-Web/
+│
+├── index.html
+├── app.jsx
+├── tweaks-panel.jsx
+├── assets/
+│   ├── images/
+│   └── videos/
+│
+└── README.md
