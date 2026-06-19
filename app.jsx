@@ -4,35 +4,137 @@ const V      = "uploads/Make Authentic Japanese Sushi Like a Pro_-72644283.mp4";
 const V_HERO = "uploads/Sushi Bar _ Salmon Nigiri (1).mp4";
 
 const MENU = [
-  { id:1, num:'01', name:'Sake Nigiri',  jp:'鮭 にぎり',      cat:'nigiri',  price:1900, badge:"Chef's Choice", desc:'Atlantic salmon aged on kombu, hand-pressed over body-temperature shari. A whisper of sudachi.', img:'uploads/pasted-1777582340525-0.png' },
-  { id:2, num:'02', name:'Otoro',        jp:'大トロ',          cat:'nigiri',  price:4200, badge:'Premium',       desc:'Fatty tuna belly from Oma Prefecture. The highest grade, cut to order at each service.', img:'uploads/pasted-1777583083889-0.png' },
-  { id:3, num:'03', name:'Wagyu Nigiri', jp:'和牛 にぎり',     cat:'premium', price:5800, badge:'Limited',       desc:'A5 Wagyu lightly seared, draped over shari with ponzu gel and micro chive.', img:'uploads/pasted-1777583212111-0.png' },
-  { id:4, num:'04', name:'Unagi',        jp:'鰻',             cat:'nigiri',  price:3600, badge:'Seasonal',      desc:'Grilled freshwater eel glazed with tare, finished with sesame. Smoky and caramelised.', img:'uploads/pasted-1777583293307-0.png' },
-  { id:5, num:'05', name:'Dragon Roll',  jp:'ドラゴンロール',  cat:'rolls',   price:3900, badge:'Best Seller',   desc:'Tuna, avocado and shrimp wrapped in otoro, finished with aged balsamic pearls.', img:'uploads/pasted-1777583745213-0.png' },
-  { id:6, num:'06', name:'Salmon Rose',  jp:'サーモンロール',  cat:'rolls',   price:2800, badge:'New',           desc:'Salmon-wrapped roll with shrimp, avocado, tobiko, crowned with truffle mayo and ikura.', img:'uploads/pasted-1777583755999-0.png' },
+  // NIGIRI
+  { id:1, num:'01', name:'Salmon Nigiri', jp:'鮭 にぎり', cat:'nigiri', price:19, badge:"Chef's Choice", ordered:true, desc:'Atlantic salmon, cured on kombu, hand-formed on warm vinegared rice. Subtle note of sea bass.', img:'uploads/pasted-1777582340525-0.png' },
+  { id:2, num:'02', name:'Otoro', jp:'大トロ', cat:'nigiri', price:42, badge:'Premium', ordered:false, desc:'Fatty tuna belly of the highest grade. Sliced immediately before serving.', img:'uploads/pasted-1777583083889-0.png' },
+  { id:3, num:'03', name:'Wagyu Nigiri', jp:'和牛 にぎり', cat:'premium', price:58, badge:'Limited', ordered:true, desc:'A5 Wagyu, lightly seared, on vinegared rice with ponzu gel and micro shiso.', img:'uploads/pasted-1777583212111-0.png' },
+  { id:4, num:'04', name:'Unagi', jp:'鰻', cat:'nigiri', price:36, badge:'Seasonal', ordered:true, desc:'Freshwater eel grilled with sweet eel sauce and sesame. Smoky, caramelized flavor.', img:'uploads/pasted-1777583293307-0.png' },
+  { id:5, num:'05', name:'Maguro', jp:'まぐろ', cat:'nigiri', price:22, badge:'', ordered:false, desc:'Lean bluefin tuna. Clean taste and firm texture.', img:'uploads/pasted-1777582340525-0.png' },
+  { id:6, num:'06', name:'Hamachi', jp:'ハマチ', cat:'nigiri', price:24, badge:'New', ordered:true, desc:'Yellowtail, aged 48 hours. Buttery texture with citrus notes.', img:'uploads/pasted-1777583083889-0.png' },
+  { id:7, num:'07', name:'Hirame', jp:'ひらめ', cat:'nigiri', price:21, badge:'', ordered:false, desc:'Flounder with yuzu kosho touch. Delicate, semi-transparent texture.', img:'uploads/pasted-1777583212111-0.png' },
+  { id:8, num:'08', name:'Amaebi', jp:'甘海老', cat:'nigiri', price:18, badge:'', ordered:true, desc:'Sweet shrimp, boiled and chilled. Served with head for richer flavor.', img:'uploads/pasted-1777583293307-0.png' },
+  { id:9, num:'09', name:'Ikura', jp:'イクラ', cat:'nigiri', price:26, badge:' Seasonal', ordered:true, desc:'Salmon roe marinated in soy and mirin. Bright oceanic burst in every egg.', img:'uploads/pasted-1777582340525-0.png' },
+  { id:10, num:'10', name:'Tako', jp:'たこ', cat:'nigiri', price:17, badge:'', ordered:false, desc:'Octopus, simmered 4 hours. Tender with subtle ginger undertones.', img:'uploads/pasted-1777583083889-0.png' },
+
+  // ROLLS
+  { id:11, num:'11', name:'Dragon Roll', jp:'ドラゴンロール', cat:'rolls', price:39, badge:'Best Seller', ordered:true, desc:'Tuna, avocado, and shrimp wrapped in otoro, with pearls of aged balsamic.', img:'uploads/pasted-1777583745213-0.png' },
+  { id:12, num:'12', name:'Salmon Rose Roll', jp:'サーモンロール', cat:'rolls', price:28, badge:'New', ordered:false, desc:'Salmon roll with shrimp, avocado, tobiko, truffle mayo, and ikura.', img:'uploads/pasted-1777583755999-0.png' },
+  { id:13, num:'13', name:'Rainbow Roll', jp:'レインボーロール', cat:'rolls', price:34, badge:'Popular', ordered:true, desc:'California roll with five types of sashimi: tuna, salmon, hamachi, shrimp, and avocado.', img:'uploads/pasted-1777583745213-0.png' },
+  { id:14, num:'14', name:'Spicy Tuna Roll', jp:'スパイシーマグロ', cat:'rolls', price:26, badge:'', ordered:false, desc:'Minced tuna with spicy mayo, cucumber, and sesame. Finished with habanero.', img:'uploads/pasted-1777583755999-0.png' },
+  { id:15, num:'15', name:'Philadelphia Roll', jp:'フィラデルフィア', cat:'rolls', price:29, badge:'Classic', ordered:true, desc:'Smoked salmon, cream cheese, and cucumber. Modern classic with creamy richness.', img:'uploads/pasted-1777583745213-0.png' },
+  { id:16, num:'16', name:'Firecracker Roll', jp:'ファイアクラッカー', cat:'rolls', price:32, badge:'Spicy', ordered:false, desc:'Spicy crab, cucumber, topped with spicy tuna and sriracha aioli.', img:'uploads/pasted-1777583755999-0.png' },
+  { id:17, num:'17', name:'Alaska Roll', jp:'アラスカンロール', cat:'rolls', price:31, badge:'Seasonal', ordered:false, desc:'Smoked salmon, avocado, cucumber, topped with fresh salmon and masago.', img:'uploads/pasted-1777583745213-0.png' },
+  { id:18, num:'18', name:'Caterpillar Roll', jp:'キャタピラー', cat:'rolls', price:33, badge:'', ordered:true, desc:'Eel and cucumber inside, topped with avocado slices and eel sauce.', img:'uploads/pasted-1777583755999-0.png' },
+  { id:19, num:'19', name:'Spider Roll', jp:'スパイダーロール', cat:'rolls', price:35, badge:'Crispy', ordered:false, desc:'Tempura soft-shell crab, cucumber, avocado, and spicy mayo.', img:'uploads/pasted-1777583745213-0.png' },
+  { id:20, num:'20', name:'Volcano Roll', jp:'ボルケーノロール', cat:'rolls', price:36, badge:'Hot', ordered:true, desc:'Spicy tuna, cucumber, baked scallops, and spicy mayo on top.', img:'uploads/pasted-1777583755999-0.png' },
+  { id:21, num:'21', name:'Tiger Roll', jp:'タイガーロール', cat:'rolls', price:34, badge:'Premium', ordered:false, desc:'Tempura shrimp, cucumber, avocado, seared tuna on top, and unagi sauce.', img:'uploads/pasted-1777583745213-0.png' },
+  { id:22, num:'22', name:'Lobster Roll', jp:'ロブスターロール', cat:'premium', price:48, badge:'Luxury', ordered:true, desc:'Lobster, avocado, cucumber, lobster salad, and ikura.', img:'uploads/pasted-1777583755999-0.png' },
+  { id:31, num:'31', name:'Black Dragon Roll', jp:'ブラックドラゴン', cat:'rolls', price:37, badge:'New', ordered:true, desc:'Shrimp, salmon, tuna, and avocado finished with glossy unagi sauce and crispy pearls.', img:'uploads/pasted-1777583745213-0.png' },
+  { id:32, num:'32', name:'Sakura Ebi Roll', jp:'桜海老ロール', cat:'rolls', price:30, badge:"Chef's Choice", ordered:false, desc:'Salmon-wrapped roll with shrimp, avocado, tobiko, and a soft yuzu cream finish.', img:'uploads/pasted-1777583755999-0.png' },
+  { id:33, num:'33', name:'Tobiko California', jp:'とびこカリフォルニア', cat:'rolls', price:27, badge:'Popular', ordered:true, desc:'Crab, avocado, cucumber, and a bright tobiko coat inspired by classic California rolls.', img:'uploads/pasted-1777583755999-0.png' },
+  { id:34, num:'34', name:'Creamy Volcano Roll', jp:'クリーミーボルケーノ', cat:'rolls', price:33, badge:'Hot', ordered:false, desc:'Spicy salmon, cream cheese, tobiko, and warm chili mayo glazed over each piece.', img:'uploads/pasted-1777583745213-0.png' },
+  { id:35, num:'35', name:'Black Sesame Maki', jp:'黒ごま巻き', cat:'rolls', price:35, badge:'Premium', ordered:true, desc:'Tuna, shrimp, cream cheese, and red tobiko wrapped in toasted black sesame.', img:'uploads/pasted-1777583212111-0.png' },
+  { id:36, num:'36', name:'Crispy Salmon Roll', jp:'クリスピーサーモン', cat:'rolls', price:31, badge:'Crispy', ordered:false, desc:'Salmon, cucumber, and cream cheese with a golden crunchy coating and soy dip.', img:'uploads/pasted-1777583083889-0.png' },
+  { id:37, num:'37', name:'Rainbow Avocado Roll', jp:'レインボーアボカド', cat:'rolls', price:36, badge:'Seasonal', ordered:true, desc:'Avocado, tuna, salmon, egg, and shrimp layered with unagi sauce and sesame.', img:'uploads/pasted-1777583745213-0.png' },
+  { id:38, num:'38', name:'Salmon Cream Roll', jp:'サーモンクリーム', cat:'rolls', price:29, badge:'Classic', ordered:false, desc:'Silky salmon around warm rice, cream cheese, avocado, and a clean finish.', img:'uploads/pasted-1777583755999-0.png' },
+
+  // GUNKAN
+  { id:23, num:'23', name:'Uni Gunkan', jp:'ウニ 軍艦', cat:'gunkan', price:38, badge:'Premium', ordered:true, desc:'Sea urchin, fresh daily. Creamy, sweet, with oceanic brine.', img:'uploads/pasted-1777583745213-0.png' },
+  { id:24, num:'24', name:'Ikura Gunkan', jp:'イクラ 軍艦', cat:'gunkan', price:28, badge:'', ordered:false, desc:'Glossy salmon roe. Each egg bursts with ocean flavor.', img:'uploads/pasted-1777583755999-0.png' },
+  { id:25, num:'25', name:'Negitoro Gunkan', jp:'ネギトロ', cat:'gunkan', price:32, badge:'Popular', ordered:true, desc:'Minced fatty tuna with green onion. Rich and fresh taste.', img:'uploads/pasted-1777583745213-0.png' },
+  { id:26, num:'26', name:'Quail Egg Gunkan', jp:'うずら卵', cat:'gunkan', price:24, badge:'', ordered:true, desc:'Negitoro topped with raw quail egg. Velvety, rich serving.', img:'uploads/pasted-1777583755999-0.png' },
+
+  // SASHIMI
+  { id:27, num:'27', name:'Otoro Sashimi', jp:'大トロ 刺身', cat:'sashimi', price:52, badge:'Premium', ordered:false, desc:'Three pieces of premium fatty tuna. The pinnacle of sushi craftsmanship.', img:'uploads/pasted-1777583083889-0.png' },
+  { id:28, num:'28', name:'Salmon Sashimi', jp:'鮭 刺身', cat:'sashimi', price:28, badge:'', ordered:true, desc:'Five pieces of Atlantic salmon. Served with ponzu and fresh wasabi.', img:'uploads/pasted-1777582340525-0.png' },
+  { id:29, num:'29', name:'Mixed Sashimi', jp:'盛り合わせ', cat:'sashimi', price:45, badge:'Value', ordered:true, desc:"Chef's selection of seven seasonal fish. A journey through the ocean's finest flavors.", img:'uploads/pasted-1777583745213-0.png' },
+  { id:30, num:'30', name:'Hamachi Sashimi', jp:'ハマチ 刺身', cat:'sashimi', price:32, badge:'New', ordered:false, desc:'Yellowtail, aged to perfect texture. Served with yuzu and habanero.', img:'uploads/pasted-1777583083889-0.png' },
 ];
 
-const CATS = ['All', 'Nigiri', 'Rolls', 'Premium'];
+const PHOTO_VARIANTS = {
+  nigiri: [
+    { img:'uploads/pasted-1777582340525-0.png', pos:'center' },
+    { img:'uploads/pasted-1777583083889-0.png', pos:'center' },
+    { img:'uploads/pasted-1777583212111-0.png', pos:'45% 52%' },
+    { img:'uploads/pasted-1777583293307-0.png', pos:'52% 50%' },
+  ],
+  rolls: [
+    { img:'uploads/pasted-1777583745213-0.png', pos:'center' },
+    { img:'uploads/pasted-1777583755999-0.png', pos:'50% 48%' },
+    { img:'uploads/pasted-1777583212111-0.png', pos:'45% 50%' },
+    { img:'uploads/pasted-1777583293307-0.png', pos:'58% 50%' },
+    { img:'uploads/pasted-1777583083889-0.png', pos:'50% 54%' },
+  ],
+  gunkan: [
+    { img:'uploads/pasted-1777583745213-0.png', pos:'50% 44%' },
+    { img:'uploads/pasted-1777583755999-0.png', pos:'50% 52%' },
+    { img:'uploads/pasted-1777583212111-0.png', pos:'46% 50%' },
+    { img:'uploads/pasted-1777583293307-0.png', pos:'54% 52%' },
+  ],
+  sashimi: [
+    { img:'uploads/pasted-1777583083889-0.png', pos:'center' },
+    { img:'uploads/pasted-1777582340525-0.png', pos:'center' },
+    { img:'uploads/pasted-1777583212111-0.png', pos:'48% 50%' },
+    { img:'uploads/pasted-1777583745213-0.png', pos:'50% 46%' },
+  ],
+  premium: [
+    { img:'uploads/pasted-1777583212111-0.png', pos:'45% 50%' },
+    { img:'uploads/pasted-1777583745213-0.png', pos:'50% 50%' },
+    { img:'uploads/pasted-1777583083889-0.png', pos:'52% 52%' },
+  ],
+};
+
+const photoCountByCat = {};
+const MENU_ITEMS = MENU.map(item => {
+  const pool = PHOTO_VARIANTS[item.cat] || PHOTO_VARIANTS.rolls;
+  const current = photoCountByCat[item.cat] || 0;
+  photoCountByCat[item.cat] = current + 1;
+  const variant = pool[current % pool.length];
+  return { ...item, img: variant.img, imgPos: variant.pos };
+});
+
+const CATS = [
+  { label:'All', value:'all' },
+  { label:'Nigiri', value:'nigiri' },
+  { label:'Rolls', value:'rolls' },
+  { label:'Premium', value:'premium' },
+];
+
+// Categories shown in the "All" view (rolls are collapsed into a "See all" tile)
+const ALL_VIEW_CATS = ['nigiri', 'premium'];
+
+const PREVIOUS_ORDER_ITEMS = MENU_ITEMS.filter(item => item.ordered).slice(0, 6);
+const HERO_ORDER_PREVIEW = PREVIOUS_ORDER_ITEMS.slice(0, 3).map((item, i) => ({
+  ...item,
+  qty: i === 0 ? 2 : 1,
+}));
 
 const BADGE_CLR = {
-  "Chef's Choice":'oklch(72% 0.08 75)',
+  "Chef's Choice": 'oklch(72% 0.08 75)',
   'Premium':      'oklch(78% 0.05 285)',
   'Limited':      'oklch(72% 0.08 22)',
   'Seasonal':     'oklch(72% 0.07 148)',
   'Best Seller':  'oklch(72% 0.08 75)',
   'New':          'oklch(74% 0.06 222)',
+  'Classic':      'oklch(72% 0.08 75)',
+  'Spicy':        'oklch(72% 0.08 22)',
+  'Hot':          'oklch(72% 0.08 22)',
+  'Crispy':       'oklch(74% 0.06 160)',
+  'Luxury':       'oklch(78% 0.05 285)',
+  'Popular':      'oklch(74% 0.06 160)',
+  'Value':        'oklch(72% 0.08 75)',
 };
 
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-const DOW    = ['Su','Mo','Tu','We','Th','Fr','Sa'];
-const SLOTS  = ['18:00','18:30','19:00','19:30','20:00','20:30'];
+const DOW    = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const SLOTS  = ['18:00','18:30','19:00','19:30','20:00','20:30','21:00','21:30'];
 const ZONES  = [
-  { id:'counter', label:'Counter',      sub:'4 seats · Watch the chef' },
-  { id:'table',   label:'Table',        sub:'2–6 guests · Intimate' },
-  { id:'private', label:'Private Room', sub:'8–12 guests · Exclusive' },
+  { id:'counter', label:'Bar',      sub:'4 seats · Chef view' },
+  { id:'table',   label:'Table',        sub:'2–6 guests · Cozy' },
+  { id:'private', label:'Private Room', sub:'8–12 guests · Private' },
 ];
 
-const fmt = p => `¥${p.toLocaleString()}`;
+const fmt = p => `€${p.toLocaleString('de-DE')}`;
 
 // ── HOOKS ─────────────────────────────────────────────────────────────────────
 
@@ -48,9 +150,12 @@ function useCart() {
   const updateQty = React.useCallback((id, delta) => {
     setItems(prev => prev.map(i => i.id === id ? { ...i, qty: i.qty + delta } : i).filter(i => i.qty > 0));
   }, []);
+  const clearCart = React.useCallback(() => {
+    setItems([]);
+  }, []);
   const total = items.reduce((s, i) => s + i.price * i.qty, 0);
   const count = items.reduce((s, i) => s + i.qty, 0);
-  return { items, addItem, updateQty, total, count };
+  return { items, addItem, updateQty, clearCart, total, count };
 }
 
 function useReveal() {
@@ -79,7 +184,7 @@ function Navbar({ count, onCartOpen, onResOpen }) {
         <li><a href="#" onClick={e => { e.preventDefault(); scrollTo('sec-delivery'); }}>Delivery</a></li>
       </ul>
       <div className="nav-actions">
-        <button className="nav-res-btn" onClick={onResOpen}>Reserve a Table</button>
+        <button className="nav-res-btn" onClick={onResOpen}>Reserve Table</button>
         <button className="nav-cart-btn" onClick={onCartOpen}>
           <span className="nav-cart-icon">
             <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
@@ -96,6 +201,7 @@ function Navbar({ count, onCartOpen, onResOpen }) {
 
 function HeroSection({ count, onCartOpen, onResOpen }) {
   const vidRef = React.useRef(null);
+  const previewSubtotal = HERO_ORDER_PREVIEW.reduce((sum, item) => sum + item.price * item.qty, 0);
   React.useEffect(() => {
     const v = vidRef.current;
     if (!v) return;
@@ -119,39 +225,42 @@ function HeroSection({ count, onCartOpen, onResOpen }) {
       <div className="hero-bottom-fade"></div>
 
       <div className="hero-content">
-        <div className="hero-eyebrow">Tokyo Handcraft · Omakase · Since 1987</div>
+        <div className="hero-eyebrow">Saarbruecken · Omakase · since 1987</div>
         <h1 className="hero-title">Omakase<br /><em>at home.</em></h1>
-        <p className="hero-sub">Chef Tanaka's creations packed in premium lacquer boxes, delivered within 45 minutes.</p>
+        <p className="hero-sub">Artisanal sushi in premium boxes, delivered to your door within 45 minutes.</p>
         <div className="hero-ctas">
           <button className="btn-primary" onClick={scrollToMenu}>
             <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
             Order Delivery
           </button>
-          <button className="btn-secondary" onClick={onResOpen}>Reserve a Table</button>
+          <button className="btn-secondary" onClick={onResOpen}>Reserve Table</button>
         </div>
       </div>
 
       <div className="hero-order-float">
         <div className="float-head">
-          <span className="float-head-label">Your Order</span>
-          <span className="float-head-sub">{count} item{count !== 1 ? 's' : ''}</span>
+          <span className="float-head-label">Ordered Before</span>
+          <span className="float-head-sub">{PREVIOUS_ORDER_ITEMS.length} picks</span>
         </div>
         <div className="float-items">
-          <div className="float-item"><span className="float-item-name">Sake Nigiri × 2</span><span className="float-item-price">¥3,800</span></div>
-          <div className="float-item"><span className="float-item-name">Otoro × 1</span><span className="float-item-price">¥4,200</span></div>
-          <div className="float-item"><span className="float-item-name">Uni Gunkan × 1</span><span className="float-item-price">¥3,200</span></div>
+          {HERO_ORDER_PREVIEW.map(item => (
+            <div className="float-item" key={item.id}>
+              <span className="float-item-name">{item.name} × {item.qty}</span>
+              <span className="float-item-price">{fmt(item.price * item.qty)}</span>
+            </div>
+          ))}
         </div>
         <div className="float-rule"></div>
         <div className="float-total">
-          <span className="float-total-label">Subtotal</span>
-          <span className="float-total-price">¥11,200</span>
+          <span className="float-total-label">Preview</span>
+          <span className="float-total-price">{fmt(previewSubtotal)}</span>
         </div>
-        <button className="float-btn" onClick={onCartOpen}>View Order →</button>
+        <button className="float-btn" onClick={scrollToMenu}>Order Again →</button>
       </div>
 
       <div className="hero-scroll">
         <div className="hero-scroll-line"></div>
-        <span className="hero-scroll-text">Explore</span>
+        <span className="hero-scroll-text">Scroll</span>
       </div>
     </section>
   );
@@ -161,23 +270,48 @@ function HeroSection({ count, onCartOpen, onResOpen }) {
 
 function DeliveryBand() {
   const items = [
-    { svg: <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>, label:'Delivery time', val:'Under 45 minutes' },
-    { svg: <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>, label:'Coverage zone', val:'Central Tokyo only' },
-    { svg: <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>, label:'Packaging', val:'Premium lacquer box' },
-    { svg: <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>, label:'Quality seal', val:'Temperature controlled' },
+    { label:'Average delivery', val:'35–45 min' },
+    { label:'Delivery radius', val:'2.4 km' },
+    { label:'Kitchen closes', val:'21:15' },
   ];
   return (
     <div className="delivery-band">
       <div className="dband-inner">
-        {items.map((it, i) => (
-          <div className="dbi" key={i}>
-            {it.svg}
-            <div>
-              <div className="dbi-label">{it.label}</div>
-              <div className="dbi-value">{it.val}</div>
-            </div>
+        <div className="dband-copy">
+          <div className="kicker">Premium Delivery</div>
+          <h2 className="dband-title">Fresh sushi, packed for the ride.</h2>
+          <p className="dband-text">Every order leaves the bar in a chilled black box with separate sauce, ginger, wasabi, and a final quality check before dispatch.</p>
+          <div className="dband-stats">
+            {items.map((it, i) => (
+              <div className="dbi" key={i}>
+                <div className="dbi-value">{it.val}</div>
+                <div className="dbi-label">{it.label}</div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+        <div className="dband-visual" aria-label="Delivery route preview">
+          <div className="route-board">
+            <div className="route-board-head">
+              <span>Route</span>
+              <strong>Bahnhofstrasse 110</strong>
+            </div>
+            <div className="route-line">
+              <span className="route-dot active"></span>
+              <span className="route-track"></span>
+              <span className="route-dot"></span>
+            </div>
+            <div className="route-board-meta">
+              <span>Kitchen</span>
+              <span>Your door</span>
+            </div>
+            <div className="route-board-note">Compact Saarbruecken delivery zone for warm rice, cold toppings, and clean presentation.</div>
+          </div>
+          <div className="dband-card">
+            <span>Next courier</span>
+            <strong>18:30</strong>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -191,18 +325,18 @@ function PhilosophySection() {
       <div className="sw sec-phil">
         <div className="phil-grid">
           <div>
-            <div className="kicker">The Craft</div>
-            <h2 className="display-heading reveal">Forty years<br />distilled into<br /><em>a single box.</em></h2>
+            <div className="kicker">Craftsmanship</div>
+            <h2 className="display-heading reveal">Forty years<br />in every<br /><em>premium box.</em></h2>
           </div>
           <div className="reveal">
             <div className="phil-body">
-              <p>Whether you sit at our counter or open a box at home, the ritual is the same. Chef Tanaka slices every piece to order. The rice is formed at body temperature. Nothing is prepared in advance.</p>
-              <p>Our delivery radius is small by design. Freshness is not a compromise.</p>
+              <p>At the restaurant or at home, the ritual remains the same: each piece is prepared after ordering, the rice is formed warm, and the flavor captures the moment.</p>
+              <p>We work with a compact delivery zone around Saarbruecken to ensure freshness is never compromised.</p>
             </div>
             <div className="stat-row">
-              <div><div className="stat-num">12</div><div className="stat-label">Courses omakase</div></div>
-              <div><div className="stat-num">45'</div><div className="stat-label">Delivery promise</div></div>
-              <div><div className="stat-num">40+</div><div className="stat-label">Years mastery</div></div>
+              <div><div className="stat-num">12</div><div className="stat-label">omakase courses</div></div>
+              <div><div className="stat-num">45'</div><div className="stat-label">delivery promise</div></div>
+              <div><div className="stat-num">40+</div><div className="stat-label">years of experience</div></div>
             </div>
           </div>
         </div>
@@ -228,7 +362,7 @@ function CinematicBlock({ onOrder }) {
       </video>
       <div className="cinematic-overlay">
         <div className="cin-line"></div>
-        <div className="cin-text">Prepared with intention.</div>
+        <div className="cin-text">Prepared with attention.</div>
         <div className="cin-sub">Delivered with care.</div>
         <div className="cin-line"></div>
         <div style={{ marginTop: 28 }}>
@@ -249,11 +383,13 @@ function MenuCard({ item, onAdd }) {
   return (
     <div className="menu-card">
       <div className="card-img">
-        <img src={item.img} alt={item.name} loading="lazy" />
+        <img src={item.img} alt={item.name} loading="lazy" style={{ objectPosition: item.imgPos || 'center' }} />
         <div className="card-img-fade"></div>
-        <div className="card-badge" style={{ color: clr, borderColor: clr, background: clr.replace(')', ' / 0.12)').replace('oklch', 'oklch') }}>
-          {item.badge}
-        </div>
+        {item.badge && (
+          <div className="card-badge" style={{ color: clr, borderColor: clr, background: clr.replace(')', ' / 0.12)').replace('oklch', 'oklch') }}>
+            {item.badge}
+          </div>
+        )}
       </div>
       <div className="card-body">
         <div className="card-num">{item.num}</div>
@@ -270,22 +406,33 @@ function MenuCard({ item, onAdd }) {
 }
 
 function MenuSection({ onAdd }) {
-  const [cat, setCat] = React.useState('All');
-  const filtered = cat === 'All' ? MENU : MENU.filter(i => i.cat === cat.toLowerCase());
+  const [cat, setCat] = React.useState('all');
+  // In the "All" view, rolls are hidden behind a "See all" tile; other views show the category itself.
+  const filtered = cat === 'all'
+    ? MENU_ITEMS.filter(i => ALL_VIEW_CATS.includes(i.cat))
+    : MENU_ITEMS.filter(i => i.cat === cat);
   return (
     <section className="sec-menu" id="sec-menu">
       <div className="sw">
         <div className="sec-header">
-          <span className="sec-title">Order À La Carte</span>
+          <span className="sec-title">À La Carte Menu</span>
           <span className="sec-counter">Spring selection — May 2026</span>
         </div>
         <div className="cat-filters">
           {CATS.map(c => (
-            <button key={c} className={`cat-btn${cat === c ? ' active' : ''}`} onClick={() => setCat(c)}>{c}</button>
+            <button key={c.value} className={`cat-btn${cat === c.value ? ' active' : ''}`} onClick={() => setCat(c.value)}>{c.label}</button>
           ))}
         </div>
         <div className="menu-grid">
           {filtered.map(item => <MenuCard key={item.id} item={item} onAdd={onAdd} />)}
+          {cat === 'all' && (
+            <button className="menu-see-all" onClick={() => setCat('rolls')}>
+              <span className="see-all-kicker">Rolls</span>
+              <span className="see-all-title">See all</span>
+              <span className="see-all-sub">Explore the full selection of signature rolls.</span>
+              <span className="see-all-arrow">View rolls →</span>
+            </button>
+          )}
         </div>
       </div>
     </section>
@@ -296,9 +443,9 @@ function MenuSection({ onAdd }) {
 
 function PackagingBlock() {
   const feats = [
-    { svg: <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>, title:'Premium lacquer finish', desc:'Hand-lacquered matte black exterior with satin-lined interior.' },
-    { svg: <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>, title:'Temperature controlled', desc:'Gel packs maintain 1–4°C throughout the 45-minute journey.' },
-    { svg: <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>, title:'Assembled to order', desc:'Every box is packed fresh at dispatch. No pre-packing, no waiting trays.' },
+    { svg: <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>, title:'Premium lacquered packaging', desc:'A matte black box with a clean insulated interior.' },
+    { svg: <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>, title:'Temperature control', desc:'Cooling elements keep the box at 1–4°C during delivery.' },
+    { svg: <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>, title:'Packed after ordering', desc:'Every box is assembled fresh right before dispatch.' },
   ];
   return (
     <section className="sec-pack" id="sec-packaging">
@@ -311,11 +458,11 @@ function PackagingBlock() {
               <div className="box-seal"><div className="box-seal-dot"></div></div>
               <div className="box-brandmark">Shiro</div>
             </div>
-            <div className="box-caption">Premium Lacquer Delivery Box</div>
+            <div className="box-caption">Premium delivery box</div>
           </div>
           <div className="reveal">
             <div className="kicker">Packaging</div>
-            <h2 className="display-heading" style={{ marginBottom: 30 }}>The box is part<br />of <em>the experience.</em></h2>
+            <h2 className="display-heading" style={{ marginBottom: 30 }}>The box is part<br />of the <em>experience.</em></h2>
             <div className="pack-features">
               {feats.map((f, i) => (
                 <div className="pack-feat" key={i}>
@@ -338,28 +485,43 @@ function PackagingBlock() {
 
 function HowItWorks() {
   const steps = [
-    { svg: <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>, title:'Order placed', desc:'Select your pieces. Your order reaches the chef immediately.' },
-    { svg: <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18M9 21V9"/></svg>, title:'Packed in lacquer box', desc:'Each piece is individually placed in our temperature-controlled box.' },
-    { svg: <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>, title:'Delivered in 45 min', desc:'Our courier delivers directly. No third parties, no delays.' },
+    { num:'01', title:'Order lands in the kitchen', desc:'The chef sees your selected rolls immediately and starts rice, fish, garnish, and sauces fresh.' },
+    { num:'02', title:'Cold-packed by course', desc:'Nigiri, rolls, sauce, ginger, and wasabi are separated so textures stay clean in transit.' },
+    { num:'03', title:'Short city route', desc:'A courier leaves from Bahnhofstrasse 110 and keeps the box flat until handoff.' },
   ];
   return (
-    <section className="sec-hiw" id="sec-delivery">
-      <div className="sw">
-        <div className="kicker reveal">How delivery works</div>
-        <div className="hiw-steps">
-          {steps.map((s, i) => (
-            <React.Fragment key={i}>
-              <div className="hiw-step reveal">
-                <div className="hiw-num">0{i + 1}</div>
-                <div className="hiw-icon">{s.svg}</div>
-                <div className="hiw-title">{s.title}</div>
-                <div className="hiw-desc">{s.desc}</div>
+    <section className="sec-hiw delivery-flow" id="sec-delivery">
+      <div className="sw delivery-flow-grid">
+        <div className="delivery-flow-copy reveal">
+          <div className="kicker">How delivery works</div>
+          <h2 className="display-heading">From sushi bar<br />to your door,<br /><em>still chilled.</em></h2>
+          <p className="delivery-flow-lead">We keep the delivery zone compact so rice stays soft, toppings stay cool, and each roll arrives looking like it left the counter minutes ago.</p>
+          <div className="delivery-route">
+            {steps.map(step => (
+              <div className="route-step" key={step.num}>
+                <div className="route-num">{step.num}</div>
+                <div>
+                  <div className="route-title">{step.title}</div>
+                  <div className="route-desc">{step.desc}</div>
+                </div>
               </div>
-              {i < steps.length - 1 && <div className="hiw-connector"></div>}
-            </React.Fragment>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+        <aside className="delivery-flow-panel reveal">
+          <div className="delivery-panel-body">
+            <div className="delivery-panel-kicker">Delivery window</div>
+            <div className="delivery-panel-time">17:00–22:00</div>
+            <div className="delivery-panel-note">Orders accepted until 21:15, Monday to Saturday.</div>
+            <div className="delivery-panel-divider"></div>
+            <div className="delivery-checks">
+              <span>Chilled black box</span>
+              <span>Separate sauces</span>
+              <span>Flat courier carry</span>
+            </div>
+          </div>
+        </aside>
+        </div>
     </section>
   );
 }
@@ -372,10 +534,17 @@ function FooterSection({ onResOpen }) {
       <div className="foot-inner">
         <div className="foot-logo">Shiro</div>
         <div className="foot-addr">
-          6-chōme-4-1 Roppongi, Minato City · Tokyo 106-0032, Japan<br />
-          Delivery: Mon – Sat 17:00 – 22:00 · Orders close 21:15
+          Saarbruecken, Bahnhofstrasse 110<br />
+          Delivery: Mon – Sat 17:00 – 22:00 · Orders until 21:15
         </div>
-        <div className="foot-copy">© 2026 Shiro</div>
+        <div className="foot-right">
+          <div className="foot-links">
+            <a href="#">Impressum</a>
+            <a href="#">Datenschutz</a>
+            <a href="#">AGB</a>
+          </div>
+          <div className="foot-copy">© 2026 Shiro</div>
+        </div>
       </div>
     </footer>
   );
@@ -383,7 +552,7 @@ function FooterSection({ onResOpen }) {
 
 // ── CART SIDEBAR ──────────────────────────────────────────────────────────────
 
-function CartSidebar({ isOpen, onClose, items, total, onQtyUpdate }) {
+function CartSidebar({ isOpen, onClose, items, total, onQtyUpdate, onCheckoutClick }) {
   return (
     <>
       <div className={`cart-overlay${isOpen ? ' open' : ''}`} onClick={onClose} />
@@ -396,7 +565,7 @@ function CartSidebar({ isOpen, onClose, items, total, onQtyUpdate }) {
           {items.length === 0 ? (
             <div className="cart-empty">
               <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-              <div className="cart-empty-text">Your order is empty</div>
+              <div className="cart-empty-text">Your cart is empty</div>
               <div className="cart-empty-sub">Add items from the menu below</div>
             </div>
           ) : (
@@ -424,8 +593,8 @@ function CartSidebar({ isOpen, onClose, items, total, onQtyUpdate }) {
               <span className="cart-sub-label">Subtotal</span>
               <span className="cart-sub-price">{fmt(total)}</span>
             </div>
-            <button className="cart-checkout">Proceed to Checkout →</button>
-            <div className="cart-note">Free delivery within Central Tokyo</div>
+            <button className="cart-checkout" onClick={onCheckoutClick}>Checkout →</button>
+            <div className="cart-note">Delivery within Saarbruecken</div>
           </div>
         )}
       </div>
@@ -498,7 +667,7 @@ function ReservationModal({ isOpen, onClose }) {
   const canNext1 = selTime && selZone;
   const canNext2 = form.name && form.email && form.phone;
 
-  const stepLabels = ['Date', 'Time & Zone', 'Details'];
+  const stepLabels = ['Date', 'Time & Area', 'Details'];
 
   return (
     <div className={`modal-overlay${isOpen ? ' open' : ''}`} onClick={e => e.target === e.currentTarget && onClose()}>
@@ -528,7 +697,7 @@ function ReservationModal({ isOpen, onClose }) {
           {step === 1 && (
             <>
               <div style={{ marginBottom: 26 }}>
-                <div className="form-label" style={{ marginBottom: 10 }}>Select time</div>
+                <div className="form-label" style={{ marginBottom: 10 }}>Choose a time</div>
                 <div className="time-grid">
                   {SLOTS.map(s => (
                     <div key={s} className={`time-slot${selTime === s ? ' sel' : ''}`} onClick={() => setSelTime(s)}>{s}</div>
@@ -536,7 +705,7 @@ function ReservationModal({ isOpen, onClose }) {
                 </div>
               </div>
               <div>
-                <div className="form-label" style={{ marginBottom: 10 }}>Seating zone</div>
+                <div className="form-label" style={{ marginBottom: 10 }}>Seating area</div>
                 <div className="zone-grid">
                   {ZONES.map(z => (
                     <div key={z.id} className={`zone-card${selZone === z.id ? ' sel' : ''}`} onClick={() => setSelZone(z.id)}>
@@ -559,11 +728,11 @@ function ReservationModal({ isOpen, onClose }) {
                 <div className="form-row">
                   <div className="form-group">
                     <label className="form-label">Full name</label>
-                    <input className="form-input" placeholder="Hiroshi Tanaka" value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} />
+                    <input className="form-input" placeholder="Emma Weber" value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} />
                   </div>
                   <div className="form-group">
                     <label className="form-label">Phone</label>
-                    <input className="form-input" placeholder="+81 3 0000 0000" value={form.phone} onChange={e => setForm(f => ({ ...f, phone: e.target.value }))} />
+                    <input className="form-input" placeholder="+49 681 000000" value={form.phone} onChange={e => setForm(f => ({ ...f, phone: e.target.value }))} />
                   </div>
                 </div>
                 <div className="form-group">
@@ -572,19 +741,19 @@ function ReservationModal({ isOpen, onClose }) {
                 </div>
                 <div className="form-row">
                   <div className="form-group">
-                    <label className="form-label">Number of guests</label>
+                    <label className="form-label">Guests</label>
                     <select className="form-select" value={form.guests} onChange={e => setForm(f => ({ ...f, guests: e.target.value }))}>
                       {[1,2,3,4,5,6,7,8].map(n => <option key={n} value={n}>{n} guest{n > 1 ? 's' : ''}</option>)}
                     </select>
                   </div>
                   <div className="form-group">
-                    <label className="form-label">Dietary notes</label>
-                    <input className="form-input" placeholder="Allergies, preferences…" value={form.comment} onChange={e => setForm(f => ({ ...f, comment: e.target.value }))} />
+                    <label className="form-label">Dining notes</label>
+                    <input className="form-input" placeholder="Allergies, preferences..." value={form.comment} onChange={e => setForm(f => ({ ...f, comment: e.target.value }))} />
                   </div>
                 </div>
                 {selDate && (
                   <div className="booking-summary">
-                    {MONTHS[selDate.m]} {selDate.d}, {selDate.y} · {selTime} · {ZONES.find(z => z.id === selZone)?.label} · {form.guests} guest{form.guests > 1 ? 's' : ''}
+                    {selDate.d} {MONTHS[selDate.m]} {selDate.y} · {selTime} · {ZONES.find(z => z.id === selZone)?.label} · {form.guests} guest{Number(form.guests) > 1 ? 's' : ''}
                   </div>
                 )}
               </div>
@@ -603,7 +772,7 @@ function ReservationModal({ isOpen, onClose }) {
               <div className="confirm-title">Reservation confirmed.</div>
               <div className="confirm-sub">
                 We look forward to welcoming you{form.name ? `, ${form.name}` : ''}.<br />
-                A confirmation has been sent to {form.email || 'your email'}.
+                Confirmation has been sent to {form.email || 'your email'}.
               </div>
               <div className="confirm-ref">{ref}</div>
               <div className="modal-actions" style={{ justifyContent: 'center', marginTop: 24 }}>
@@ -618,12 +787,265 @@ function ReservationModal({ isOpen, onClose }) {
   );
 }
 
+// ── CHECKOUT MODAL ─────────────────────────────────────────────────────────────
+
+function CheckoutModal({ isOpen, onClose, items, total, onConfirmOrder }) {
+  const [form, setForm] = React.useState({
+    fullName: '',
+    phone: '',
+    address: '',
+    deliveryTime: 'asap',
+    specificTime: '',
+    paymentMethod: 'cash',
+    comment: ''
+  });
+  const [errors, setErrors] = React.useState({});
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!isOpen) {
+      const t = setTimeout(() => {
+        setForm({
+          fullName: '',
+          phone: '',
+          address: '',
+          deliveryTime: 'asap',
+          specificTime: '',
+          paymentMethod: 'cash',
+          comment: ''
+        });
+        setErrors({});
+        setIsSubmitting(false);
+      }, 500);
+      return () => clearTimeout(t);
+    }
+  }, [isOpen]);
+
+  const validate = () => {
+    const newErrors = {};
+    if (!form.fullName.trim()) newErrors.fullName = 'Enter your full name';
+    if (!form.phone.trim()) newErrors.phone = 'Enter your phone number';
+    if (!form.address.trim()) newErrors.address = 'Enter your delivery address';
+    if (form.deliveryTime === 'specific' && !form.specificTime.trim()) {
+      newErrors.specificTime = 'Choose a delivery time';
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    setIsSubmitting(true);
+
+    const orderData = {
+      orderId: `ORD-${Date.now()}`,
+      items: items.map(i => ({ id: i.id, name: i.name, qty: i.qty, price: i.price })),
+      total,
+      customer: {
+        fullName: form.fullName,
+        phone: form.phone,
+        address: form.address
+      },
+      delivery: {
+        type: form.deliveryTime,
+        time: form.deliveryTime === 'asap' ? 'As soon as possible' : form.specificTime
+      },
+      paymentMethod: form.paymentMethod,
+      comment: form.comment,
+      createdAt: new Date().toISOString()
+    };
+
+    onConfirmOrder(orderData);
+  };
+
+  const deliveryTimeOptions = [
+    { value: 'asap', label: 'As soon as possible', sub: 'Prepared now and delivered within 45 minutes.' },
+    { value: 'specific', label: 'Schedule a time', sub: 'Choose a preferred delivery window for today.' }
+  ];
+
+  const paymentMethods = [
+    { value: 'cash', label: 'Cash on delivery', sub: 'Pay the courier when your order arrives.' },
+    { value: 'card', label: 'Card on delivery', sub: 'Pay by card at the door.' },
+    { value: 'online', label: 'Online payment', sub: 'Reserved for connected payment setup.' }
+  ];
+
+  return (
+    <div className={`modal-overlay${isOpen ? ' open' : ''}`} onClick={e => e.target === e.currentTarget && onClose()}>
+      <div className="modal checkout-modal">
+        <div className="modal-head">
+          <span className="modal-title">Checkout</span>
+          <button className="close-btn" onClick={onClose}>✕</button>
+        </div>
+        <div className="modal-body checkout-body">
+          <form onSubmit={handleSubmit}>
+            <div className="checkout-grid">
+              <div className="checkout-form">
+                <div className="checkout-section-title">Delivery Details</div>
+                <div className="form-group">
+                  <label className="form-label">Full name *</label>
+                  <input
+                    className={`form-input${errors.fullName ? ' error' : ''}`}
+                    placeholder="Emma Weber"
+                    value={form.fullName}
+                    onChange={e => setForm(f => ({ ...f, fullName: e.target.value }))}
+                  />
+                  {errors.fullName && <div className="form-error">{errors.fullName}</div>}
+                </div>
+
+                <div className="form-group">
+                  <label className="form-label">Phone number *</label>
+                  <input
+                    className={`form-input${errors.phone ? ' error' : ''}`}
+                    placeholder="+49 681 000000"
+                    value={form.phone}
+                    onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
+                  />
+                  {errors.phone && <div className="form-error">{errors.phone}</div>}
+                </div>
+
+                <div className="form-group">
+                  <label className="form-label">Delivery address *</label>
+                  <input
+                    className={`form-input${errors.address ? ' error' : ''}`}
+                    placeholder="Saarbruecken, Bahnhofstrasse 110"
+                    value={form.address}
+                    onChange={e => setForm(f => ({ ...f, address: e.target.value }))}
+                  />
+                  {errors.address && <div className="form-error">{errors.address}</div>}
+                </div>
+
+                <div className="form-group">
+                  <label className="form-label">Delivery time</label>
+                  <div className="radio-group">
+                    {deliveryTimeOptions.map(opt => (
+                      <label key={opt.value} className={`radio-option${form.deliveryTime === opt.value ? ' selected' : ''}`}>
+                        <input
+                          type="radio"
+                          name="deliveryTime"
+                          value={opt.value}
+                          checked={form.deliveryTime === opt.value}
+                          onChange={e => setForm(f => ({ ...f, deliveryTime: e.target.value }))}
+                        />
+                        <span className="radio-copy">
+                          <span className="radio-title">{opt.label}</span>
+                          <span className="radio-sub">{opt.sub}</span>
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                  {form.deliveryTime === 'specific' && (
+                    <input
+                      className={`form-input${errors.specificTime ? ' error' : ''}`}
+                      style={{ marginTop: 10 }}
+                      type="time"
+                      value={form.specificTime}
+                      onChange={e => setForm(f => ({ ...f, specificTime: e.target.value }))}
+                    />
+                  )}
+                  {errors.specificTime && <div className="form-error">{errors.specificTime}</div>}
+                </div>
+
+                <div className="form-group">
+                  <label className="form-label">Payment method</label>
+                  <div className="radio-group">
+                    {paymentMethods.map(method => (
+                      <label key={method.value} className={`radio-option${form.paymentMethod === method.value ? ' selected' : ''}`}>
+                        <input
+                          type="radio"
+                          name="paymentMethod"
+                          value={method.value}
+                          checked={form.paymentMethod === method.value}
+                          onChange={e => setForm(f => ({ ...f, paymentMethod: e.target.value }))}
+                        />
+                        <span className="radio-copy">
+                          <span className="radio-title">{method.label}</span>
+                          <span className="radio-sub">{method.sub}</span>
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label className="form-label">Note for courier / restaurant</label>
+                  <textarea
+                    className="form-textarea"
+                    placeholder="Special requests, allergies, entrance notes..."
+                    value={form.comment}
+                    onChange={e => setForm(f => ({ ...f, comment: e.target.value }))}
+                  />
+                </div>
+              </div>
+
+              <div className="checkout-summary">
+                <div className="checkout-summary-title">Order Summary</div>
+                <div className="checkout-items">
+                  {items.map(item => (
+                    <div className="checkout-item" key={item.id}>
+                      <div className="checkout-item-info">
+                        <div className="checkout-item-name">{item.name}</div>
+                        <div className="checkout-item-qty">× {item.qty}</div>
+                      </div>
+                      <div className="checkout-item-price">{fmt(item.price * item.qty)}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="checkout-total">
+                  <span className="checkout-total-label">Total</span>
+                  <span className="checkout-total-price">{fmt(total)}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="modal-actions">
+              <button type="button" className="modal-btn-s" onClick={onClose}>← Back</button>
+              <button type="submit" className="modal-btn-p" disabled={isSubmitting}>
+                {isSubmitting ? 'Processing...' : 'Confirm Order'}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── SUCCESS MODAL ───────────────────────────────────────────────────────────────
+
+function SuccessModal({ isOpen, onClose, orderId }) {
+  return (
+    <div className={`modal-overlay${isOpen ? ' open' : ''}`} onClick={e => e.target === e.currentTarget && onClose()}>
+      <div className="modal success-modal">
+        <div className="modal-body" style={{ padding: '48px 36px', textAlign: 'center' }}>
+          <div className="success-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div className="success-title">Thank you!</div>
+          <div className="success-sub">
+            Your order has been placed successfully.<br />
+            Order number:
+          </div>
+          <div className="success-order-id">{orderId}</div>
+          <div className="modal-actions" style={{ justifyContent: 'center', marginTop: 32 }}>
+            <button className="modal-btn-p" onClick={onClose}>Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── ROOT APP ──────────────────────────────────────────────────────────────────
 
 function App() {
   const [cartOpen, setCartOpen] = React.useState(false);
   const [resOpen,  setResOpen]  = React.useState(false);
-  const { items, addItem, updateQty, total, count } = useCart();
+  const [checkoutOpen, setCheckoutOpen] = React.useState(false);
+  const [successOpen, setSuccessOpen] = React.useState(false);
+  const [lastOrderId, setLastOrderId] = React.useState('');
+  const { items, addItem, updateQty, clearCart, total, count } = useCart();
   useReveal();
 
   const addWithPulse = React.useCallback(item => {
@@ -637,6 +1059,31 @@ function App() {
     }
   }, [addItem]);
 
+  const handleCheckoutClick = React.useCallback(() => {
+    if (items.length === 0) {
+      alert('Your cart is empty');
+      return;
+    }
+    setCartOpen(false);
+    setCheckoutOpen(true);
+  }, [items.length]);
+
+  const handleConfirmOrder = React.useCallback((orderData) => {
+    const orders = JSON.parse(localStorage.getItem('shiro_orders') || '[]');
+    orders.push(orderData);
+    localStorage.setItem('shiro_orders', JSON.stringify(orders));
+
+    setLastOrderId(orderData.orderId);
+    clearCart();
+    setCheckoutOpen(false);
+    setSuccessOpen(true);
+  }, [clearCart]);
+
+  const handleCloseSuccess = React.useCallback(() => {
+    setSuccessOpen(false);
+    setLastOrderId('');
+  }, []);
+
   return (
     <>
       <Navbar count={count} onCartOpen={() => setCartOpen(true)} onResOpen={() => setResOpen(true)} />
@@ -648,8 +1095,27 @@ function App() {
       <PackagingBlock />
       <HowItWorks />
       <FooterSection onResOpen={() => setResOpen(true)} />
-      <CartSidebar isOpen={cartOpen} onClose={() => setCartOpen(false)} items={items} total={total} onQtyUpdate={updateQty} />
+      <CartSidebar
+        isOpen={cartOpen}
+        onClose={() => setCartOpen(false)}
+        items={items}
+        total={total}
+        onQtyUpdate={updateQty}
+        onCheckoutClick={handleCheckoutClick}
+      />
       <ReservationModal isOpen={resOpen} onClose={() => setResOpen(false)} />
+      <CheckoutModal
+        isOpen={checkoutOpen}
+        onClose={() => setCheckoutOpen(false)}
+        items={items}
+        total={total}
+        onConfirmOrder={handleConfirmOrder}
+      />
+      <SuccessModal
+        isOpen={successOpen}
+        onClose={handleCloseSuccess}
+        orderId={lastOrderId}
+      />
     </>
   );
 }
